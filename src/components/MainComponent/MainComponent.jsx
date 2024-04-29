@@ -1,13 +1,27 @@
-import React from "react";
-import Head from "./Head/Head";
+import React, { useState } from 'react';
+import Card from "./Card/Card";
+import Form from "./Form/Form";
 
-const MainComponent = () => {
+// img url: https://avatars.githubusercontent.com/u/158491988?s=96&v=4
+
+const Head = () => {
+  const [user, setUser] = useState({
+      name: "",
+      email: "",
+      url: "",
+      age: ""
+    });
+
   return (
     <div>
-      <h1>This is the main component</h1>
-      <Head />
+      <Form setUser={setUser}/>
+      <Card
+        name={user.name}
+        email={user.email}
+        url={user.url}
+        age={user.age}/>
     </div>
   );
 };
 
-export default MainComponent;
+export default Head;
